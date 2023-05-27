@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PelamarController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Pelamar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/form', function(){
+//     return view('form.index');
+// });
+
+// Route::get('/jabatan', function(){
+//     return view('jabatan.index');
+// });
+
+// Route::get('/pelamar', function(){
+//     return view('pelamar.index');
+// });
+
+
+Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');
+
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
