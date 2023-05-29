@@ -22,24 +22,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>1</td>
-          <td>Farrel Favian</td>
-          <td>HSE Officer</td>
-          <td>Palembang</td>
-          <td>18-05-02</td>
-          <td>Laki-Laki</td>
-          <td>Jalan Sersan Wahab</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Kevin Sanjaya</td>
-          <td>Driller</td>
-          <td>Jakarta</td>
-          <td>20-02-03</td>
-          <td>Laki-Laki</td>
-          <td>Jalan Talang Keramat</td>
-        </tr>
+          @foreach ($pelamar as $item)
+            <tr>
+              <td scope = "row">{{$item->id}}</td>
+              <td>{{$item->nama_lengkap}}</td>
+              <td>{{$item->jabatan}}</td>
+              <td>{{$item->tempat_lahir}}</td>
+              <td>{{$item->tanggal_lahir}}</td>
+              <td>{{$item->jenis_kelamin}}</td>
+              <td>{{$item->alamat_rumah}}</td>
+              {{-- <td>{{$item->pendidikan_terakhir}}</td> --}}
+            </tr>
+          @endforeach
         </tfoot>
       </table>
     </div>

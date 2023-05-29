@@ -12,7 +12,8 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        $jabatan = Jabatan::all();
+        return view('jabatan.index',compact('jabatan'));
     }
 
     /**
@@ -20,7 +21,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('jabatan.create');
     }
 
     /**
@@ -28,7 +29,9 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        Jabatan::create($request->all());
+        return redirect()->route('jabatan');
     }
 
     /**
@@ -36,7 +39,11 @@ class JabatanController extends Controller
      */
     public function show(Jabatan $jabatan)
     {
-        //
+        //dd($request->all());
+        // dd($jabatan);
+        Jabatan::find($jabatan);
+
+        return view('jabatan.edit',compact('jabatan'));
     }
 
     /**

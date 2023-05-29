@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PelamarController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Pelamar;
@@ -32,9 +33,14 @@ Route::get('/', function () {
 //     return view('pelamar.index');
 // });
 
-
+#Pelamar
 Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');
 
+#Jabatan
+Route::get('/jabatan',[JabatanController::class,'index'])->name('jabatan');
+Route::get('/jabatan/create',[JabatanController::class,'create'])->name('jabatan/create');
+Route::post('/jabatan/insert',[JabatanController::class,'store'])->name('/jabatan/insert');
+Route::get('/jabatan/show/{jabatan}',[JabatanController::class,'show'])->name('/jabatan/show');
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');

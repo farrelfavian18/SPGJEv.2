@@ -12,7 +12,8 @@ class PelamarController extends Controller
      */
     public function index()
     {
-        return'sukses';
+        $pelamar = Pelamar::all();
+        return view('pelamar.index',compact('pelamar'));
     }
 
     /**

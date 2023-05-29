@@ -15,32 +15,33 @@
           <th>#</th>
           <th>Jabatan</th>
           <th>Deskripsi</th>
+          <th>Dibuat</th>
           <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
-          {{-- @foreach ($data as $row) --}}
-            <tr>
-              {{-- <th scope="row">{{ $row->kode_jabatan }}</th> --}}
-              <td>01</td>
-              <td>HSE Officer</td>
-              <td>LSP Sertifika</td>
-            </td>
-            <td class="project-actions">
-                <a class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt">
-                    </i>
-                    Edit
-                </a>
-                <a class="btn btn-danger btn-sm" href="#">
-                    <i class="fas fa-trash">
-                    </i>
-                    Delete
-                </a>
-            </td>
-            </tr>
-          {{-- @endforeach --}}
-        <a href ="{{url('/form/create')}}" class="btn btn-success">Tambah Jabatan +</a>
+          @foreach ($jabatan as $item)
+          <tr>
+            <th scope="row">{{ $item->kode_jabatan }}</th>
+            <td>{{ $item->jabatan }}</td>
+            <td>{{ $item->deskripsi }}</td>
+            <td>{{ $item->created_at->diffForHumans() }}</td>
+          </td>
+          <td class="project-actions">
+              <a class="btn btn-info btn-sm" href="/jabatan/show/{{$item->id}}">
+                  <i class="fas fa-pencil-alt">
+                  </i>
+                  Edit
+              </a>
+              <a class="btn btn-danger btn-sm" href="#">
+                  <i class="fas fa-trash">
+                  </i>
+                  Delete
+              </a>
+          </td>
+          </tr>
+          @endforeach
+        <a href ="{{url('/jabatan/create')}}" class="btn btn-success">Tambah Jabatan +</a>
         </tfoot>
       </table>
     </div>
