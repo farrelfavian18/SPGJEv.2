@@ -212,7 +212,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{Request::is('/formp')? 'active':''}}" href="{{url('/form')}}" >
+                            <a class="nav-link {{Request::is('/pelamar/form')? 'active':''}}" href="{{url('/pelamar/form')}}" >
                                 <i class="nav-icon fas fa-edit" style="color:White"></i>
                                 <p style="color:White">
                                     Form Pendaftaran (Pelamar)

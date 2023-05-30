@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pelamar;
+use App\Models\Form;
 use Illuminate\Http\Request;
 
-class PelamarController extends Controller
+class FormController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pelamar = Pelamar::all();
-        return view('pelamar.index',compact('pelamar'));
+        //
     }
 
     /**
@@ -21,7 +20,7 @@ class PelamarController extends Controller
      */
     public function create()
     {
-        return view('form.create');
+        //
     }
 
     /**
@@ -29,23 +28,21 @@ class PelamarController extends Controller
      */
     public function store(Request $request)
     {
-        Pelamar::create($request->all());
-        return redirect()->route('pelamar');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Pelamar $pelamar)
+    public function show(Form $form)
     {
-        Pelamar::find($pelamar);
-        // return view('jabatan.edit',compact('jabatan'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pelamar $pelamar)
+    public function edit(Form $form)
     {
         //
     }
@@ -53,7 +50,7 @@ class PelamarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pelamar $pelamar)
+    public function update(Request $request, Form $form)
     {
         //
     }
@@ -61,10 +58,8 @@ class PelamarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pelamar $pelamar)
+    public function destroy(Form $form)
     {
-        Pelamar::find($pelamar);
-        $pelamar->delete();
-        return redirect()->route('pelamar')->with('success','Data berhasil di Hapus');
+        //
     }
 }

@@ -14,16 +14,42 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form>
+          <form action="/pelamar/insert" method="POST">
+            @csrf
             <div class="card-body">
               <div class="form-group">
-                <label for="exampleInputEmail1">Nama</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
+                <label for="exampleInputEmail1">Nama Lengkap</label>
+                <input type="email" name="nama_lengkap" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
+              </div>
+              {{-- <div class="form-group">
+                <label for="exampleInputPassword1">Jabatan yang dilamar</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat lengkap">
+              </div> --}}
+              <a>Jabatan yang dilamar</a>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pilih Jabatan
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Alamat</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat lengkap">
+                <label for="exampleInputEmail1">Tempat Lahir</label>
+                <input type="email" name="nama_lengkap" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
               </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Tanggal lahir</label>
+                <a></a>
+                <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Umur</label>
+                <input type="email" name="nama_lengkap" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
+              </div>
+              
               <div class="form-group">
                 <label for="exampleInputFile">Curriculum Vitae (CV)</label>
                 <div class="input-group">

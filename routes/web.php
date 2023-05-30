@@ -33,6 +33,12 @@ Route::get('/', function () {
 //     return view('pelamar.index');
 // });
 
+#Form daftar
+Route::get('/pelamar/form',[PelamarController::class,'create'])->name('/pelamar/form');
+Route::post('pelamar/insert',[PelamarController::class,'store'])->name('/pelamar/insert');
+Route::get('/pelamar/show/{pelamar}',[PelamarController::class,'show'])->name('/pelamar/show');
+Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
+
 #Pelamar
 Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');
 
