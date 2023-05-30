@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use App\Models\Pelamar;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class PelamarController extends Controller
      */
     public function create()
     {
-        return view('form.create');
+        $jabatan = Jabatan::all();
+        return view('form.create',compact('jabatan'));
     }
 
     /**
@@ -29,8 +31,14 @@ class PelamarController extends Controller
      */
     public function store(Request $request)
     {
-        Pelamar::create($request->all());
-        return redirect()->route('pelamar');
+        return $request;
+        // Pelamar::create($request->all());
+        // return redirect()->route('pelamar.index');
+        // $pelamar->jabatan = $request->jabatan;
+
+        // $pelamar->save();
+        // return redirect()->route('pelamar.index');
+
     }
 
     /**
@@ -38,8 +46,7 @@ class PelamarController extends Controller
      */
     public function show(Pelamar $pelamar)
     {
-        Pelamar::find($pelamar);
-        // return view('jabatan.edit',compact('jabatan'));
+       // return view('jabatan.edit');
     }
 
     /**
@@ -47,7 +54,8 @@ class PelamarController extends Controller
      */
     public function edit(Pelamar $pelamar)
     {
-        //
+        // Jabatan::find($jabatan);
+        // $pelamar->jabatan
     }
 
     /**
@@ -63,8 +71,6 @@ class PelamarController extends Controller
      */
     public function destroy(Pelamar $pelamar)
     {
-        Pelamar::find($pelamar);
-        $pelamar->delete();
-        return redirect()->route('pelamar')->with('success','Data berhasil di Hapus');
+        //
     }
 }

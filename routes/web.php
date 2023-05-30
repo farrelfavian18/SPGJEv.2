@@ -33,22 +33,22 @@ Route::get('/', function () {
 //     return view('pelamar.index');
 // });
 
-#Form daftar
-Route::get('/pelamar/form',[PelamarController::class,'create'])->name('/pelamar/form');
-Route::post('pelamar/insert',[PelamarController::class,'store'])->name('/pelamar/insert');
-Route::get('/pelamar/show/{pelamar}',[PelamarController::class,'show'])->name('/pelamar/show');
-Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
+// #Form daftar
+// Route::get('/pelamar/form',[PelamarController::class,'create'])->name('/pelamar/form');
+// Route::post('pelamar/insert',[PelamarController::class,'store'])->name('/pelamar/insert');
+// Route::get('/pelamar/show/{pelamar}',[PelamarController::class,'show'])->name('/pelamar/show');
+// Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
 
-#Pelamar
-Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');
+// #Pelamar
+// Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');
 
-#Jabatan
-Route::get('/jabatan',[JabatanController::class,'index'])->name('jabatan');
-Route::get('/jabatan/create',[JabatanController::class,'create'])->name('jabatan/create');
-Route::post('/jabatan/insert',[JabatanController::class,'store'])->name('/jabatan/insert');
-Route::get('/jabatan/show/{jabatan}',[JabatanController::class,'show'])->name('/jabatan/show');
-Route::post('/jabatan/edit{jabatan}',[JabatanController::class,'edit'])->name('/jabatan/edit');
-Route::get('/jabatan/delete{jabatan}',[JabatanController::class,'destroy'])->name('/jabatan/delete');
+// #Jabatan
+// Route::get('/jabatan',[JabatanController::class,'index'])->name('jabatan');
+// Route::get('/jabatan/create',[JabatanController::class,'create'])->name('jabatan/create');
+// Route::post('/jabatan/insert',[JabatanController::class,'store'])->name('/jabatan/insert');
+// Route::get('/jabatan/show/{jabatan}',[JabatanController::class,'show'])->name('/jabatan/show');
+// Route::post('/jabatan/edit{jabatan}',[JabatanController::class,'edit'])->name('/jabatan/edit');
+// Route::get('/jabatan/delete{jabatan}',[JabatanController::class,'destroy'])->name('/jabatan/delete');
 
 
 Route::get('/dashboard', function () {
@@ -59,6 +59,23 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    #Form daftar
+    Route::get('/pelamar/form',[PelamarController::class,'create'])->name('/pelamar/form');
+    Route::post('pelamar/insert',[PelamarController::class,'store'])->name('/pelamar/insert');
+    Route::get('/pelamar/show/{pelamar}',[PelamarController::class,'show'])->name('/pelamar/show');
+    Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
+
+    #Pelamar
+    Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');
+
+    #Jabatan
+    Route::get('/jabatan',[JabatanController::class,'index'])->name('jabatan');
+    Route::get('/jabatan/create',[JabatanController::class,'create'])->name('jabatan/create');
+    Route::post('/jabatan/insert',[JabatanController::class,'store'])->name('/jabatan/insert');
+    Route::get('/jabatan/show/{jabatan}',[JabatanController::class,'show'])->name('/jabatan/show');
+    Route::post('/jabatan/edit{jabatan}',[JabatanController::class,'edit'])->name('/jabatan/edit');
+    Route::get('/jabatan/delete{jabatan}',[JabatanController::class,'destroy'])->name('/jabatan/delete');
 });
 
 require __DIR__.'/auth.php';
