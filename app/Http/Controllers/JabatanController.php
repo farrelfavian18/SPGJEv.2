@@ -29,9 +29,8 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
         Jabatan::create($request->all());
-        return redirect()->route('jabatan');
+        return redirect()->route('jabatan')->with('success','Data berhasil di Tambahkan');
     }
 
     /**
@@ -49,9 +48,11 @@ class JabatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jabatan $jabatan)
+    public function edit(Request $request ,Jabatan $jabatan)
     {
-        //
+        Jabatan::find($jabatan);
+        $jabatan->update($request->all());
+        return redirect()->route('jabatan')->with('success','Data berhasil di Edit');
     }
 
     /**
@@ -67,6 +68,8 @@ class JabatanController extends Controller
      */
     public function destroy(Jabatan $jabatan)
     {
-        //
+        Jabatan::find($jabatan);
+        $jabatan->delete();
+        return redirect()->route('jabatan')->with('success','Data berhasil di Hapus');
     }
 }

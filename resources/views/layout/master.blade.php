@@ -207,7 +207,7 @@
                             <a class="nav-link {{Request::is('/jabatan')? 'active':''}}" href="{{url('/jabatan')}}">
                                 <i class="nav-icon fas fa-table" style="color:White"></i>
                                 <p style="color:White">
-                                    List Posisi
+                                    List Jabatan (HRD)
                                 </p>
                             </a>
                         </li>
@@ -215,7 +215,7 @@
                             <a class="nav-link {{Request::is('/formp')? 'active':''}}" href="{{url('/form')}}" >
                                 <i class="nav-icon fas fa-edit" style="color:White"></i>
                                 <p style="color:White">
-                                    Form Pendaftaran
+                                    Form Pendaftaran (Pelamar)
                                 </p>
                             </a>
                         </li>

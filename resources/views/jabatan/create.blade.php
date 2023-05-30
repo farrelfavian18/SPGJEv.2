@@ -14,21 +14,21 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="/jabatan/insert" method="POST" enctype="multipart/form-data">
+          <form action="/jabatan/insert" method="POST">
             @csrf
             <div class="card-body">
                 <div class="col-md-6">
-                  <label for="inputCity" class="form-label" value={{ $jabatan ->kode_jabatan }}>Kode Jabatan</label>
+                  <label for="inputCity" class="form-label">Kode Jabatan</label> 
                   <input type="text" name="kode_jabatan" class="form-control" id="inputCity" placeholder="Masukan Kode Jabatan">
                 </div>
                 <p></p>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama Jabatan</label>
-                  <input type="text" name="jabatan" class="form-control" placeholder="Masukan Nama Jabatan" value={{ $jabatan ->jabatan }}>
+                  <input type="text" name="jabatan" class="form-control" placeholder="Masukan Nama Jabatan" >
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                  <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan Deskripsi atau syarat Jabatan" value={{ $jabatan ->deskripsi }}></textarea>
+                  <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan Deskripsi atau syarat Jabatan"></textarea>
                 </div>
               </div>
               <!-- /.card-body -->

@@ -41,6 +41,9 @@ Route::get('/jabatan',[JabatanController::class,'index'])->name('jabatan');
 Route::get('/jabatan/create',[JabatanController::class,'create'])->name('jabatan/create');
 Route::post('/jabatan/insert',[JabatanController::class,'store'])->name('/jabatan/insert');
 Route::get('/jabatan/show/{jabatan}',[JabatanController::class,'show'])->name('/jabatan/show');
+Route::post('/jabatan/edit{jabatan}',[JabatanController::class,'edit'])->name('/jabatan/edit');
+Route::get('/jabatan/delete{jabatan}',[JabatanController::class,'destroy'])->name('/jabatan/delete');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');
