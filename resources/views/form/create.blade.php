@@ -19,12 +19,11 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Nama Lengkap</label>
-                <input type="text" name="nama_lengkap" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
+                <input type="text" name="nama_lengkap" class="form-control" @error('nama_lengkap') is-invalid @enderror value="{{ old('nama_lengkap') }}" autofocus id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
+                @error('nama_lengkap')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
-              {{-- <div class="form-group">
-                <label for="exampleInputPassword1">Jabatan yang dilamar</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat lengkap">
-              </div> --}}
               <div class="form-group">
                 <label>Jabatan yang dilamar</label>
                 <div class="dropdown">

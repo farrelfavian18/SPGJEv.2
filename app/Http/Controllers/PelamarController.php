@@ -31,13 +31,32 @@ class PelamarController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        //return $request;
+        // Jabatan::all();
         // Pelamar::create($request->all());
         // return redirect()->route('pelamar.index');
-        // $pelamar->jabatan = $request->jabatan;
+        // //$pelamar->jabatan = $request->jabatan;
+        // // $pelamar = New Pelamar;
+        // // $pelamar->$request->nama_lengkap;
+        // // $pelamar->save();
+        // // return redirect()->route('pelamar.index');
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'jabatan' => 'required',
+        ],[
+            'jabatan.required' => 'jabatan field is required'
+        ]);
 
-        // $pelamar->save();
-        // return redirect()->route('pelamar.index');
+        $pelamar =new Pelamar;
+        $pelamar->nama_lengkap = $request->nama_lengkap;
+        $pelamar->jabatan = $request->jabatan;
+        $pelamar->tempat_lahir = $request->tempat_lahir;
+        $pelamar->umur = $request->umur;
+        $pelamar->jenis_kelamin = $request->jenis_kelamin;
+        $pelamar->alamat_rumah = $request->alamat_rumah;
+        $pelamar->save();
+        return redirect('pelamar');
+
 
     }
 
