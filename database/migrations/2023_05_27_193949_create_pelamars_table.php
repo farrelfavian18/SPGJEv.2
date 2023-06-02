@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('pelamars', function (Blueprint $table) {
             $table->id();
+            //$table->unsignedBigInteger('id_jabatan');
+            $table->foreignId('id_jabatan')->references('id')->on('jabatans')->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreignId('id_jabatan')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_lengkap');
-            $table->foreignId('kode_jabatan');
-            $table->string('jabatan');
+            // $table->unsignedBigInteger('id_jabatan');
+            //$table->foreignId('id_jabatan')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
+            // ->references('id')->on('jabatans')->onDelete('cascade')->onUpdate('cascade');
+            // $table->string('jabatan');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->integer('umur');
@@ -28,12 +33,13 @@ return new class extends Migration
             $table->bigInteger('no_telp');
             $table->bigInteger('no_kk');
             $table->string('npwp');
-            $table->string('sertifikat_migas')->nullable();
+            $table->char('sertifikat_migas')->nullable();
             $table->date('masa_berlaku_sertifikat')->nullable();
             $table->enum('sim',['sim_a','sim_c','belum_punya'])->nullable();
             $table->string('pengalaman_kerja')->nullable();
             $table->string('pengalaman_jabatan')->nullable();
             $table->string('masa_jabatan')->nullable();
+            $table->char('cv')->nullable();
             $table->timestamps();
         });
     }

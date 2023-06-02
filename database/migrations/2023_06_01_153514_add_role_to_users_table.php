@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jabatans', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode_jabatan')->unique();
-            $table->string('nama_jabatan');
-            $table->string('deskripsi');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('role')->default('0');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jabatans');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 };

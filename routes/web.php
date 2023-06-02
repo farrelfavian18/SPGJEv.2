@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PelamarController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Interview;
 use App\Models\Pelamar;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +78,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/jabatan/show/{jabatan}',[JabatanController::class,'show'])->name('/jabatan/show');
     Route::post('/jabatan/edit{jabatan}',[JabatanController::class,'edit'])->name('/jabatan/edit');
     Route::get('/jabatan/delete{jabatan}',[JabatanController::class,'destroy'])->name('/jabatan/delete');
+    
+    #Interview
+    Route::get('/interview',[InterviewController::class,'index'])->name('interview');
 });
 
 require __DIR__.'/auth.php';

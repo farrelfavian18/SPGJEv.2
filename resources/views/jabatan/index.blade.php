@@ -20,7 +20,7 @@
         <thead>
         <tr>
           <th>No.</th>
-          {{-- <th>KodeJabatan</th> --}}
+          <th>KodeJabatan</th>
           <th>Jabatan</th>
           <th>Deskripsi</th>
           <th>Dibuat</th>
@@ -35,8 +35,8 @@
           @foreach ($jabatan as $item)
           <tr>
             <th scope="row">{{ $no++ }}</th>
-            {{-- <td>{{ $item->kode_jabatan }}</td> --}}
-            <td>{{ $item->jabatan }}</td>
+            <td>{{ $item->kode_jabatan }}</td>
+            <td>{{ $item->nama_jabatan }}</td>
             <td>{{ $item->deskripsi }}</td>
             <td>{{ $item->created_at->diffForHumans() }}</td>
             <td>{{ $item->updated_at->diffForHumans() }}</td>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Jabatan;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pelamar extends Model
 {
@@ -13,11 +14,12 @@ class Pelamar extends Model
     //     'nama_lengkap',
     //     'jabatan'
     //   ];
-    protected $guarded = [$id]; 
+    protected $guarded = []; 
+    //protected $table = 'pelamar';
     protected $date =['created_at'];
-    public function jabatan()
+    public function jabatans()
     {
-        // return $this->belongsTo("App\Models\Kategori");
-        return $this->belongsTo(Jabatan::class, 'kode_jabatan');
+        return $this->belongsTo(Jabatan::class,'id_jabatan');
+        // 'id_jabatan','id')->withDefault('-');
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Interview;
+use App\Models\Pelamar;
 use Illuminate\Http\Request;
+use App\Models\Jabatan;
 
 class InterviewController extends Controller
 {
@@ -12,7 +14,8 @@ class InterviewController extends Controller
      */
     public function index()
     {
-        //
+        $interview = Interview::all();
+        return view('interview.index',compact('interview'));
     }
 
     /**
@@ -20,7 +23,8 @@ class InterviewController extends Controller
      */
     public function create()
     {
-        //
+        $pelamar= Pelamar::all();
+        return view('interview.index',compact('pelamar'));
     }
 
     /**
@@ -28,7 +32,8 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Interview::create($request->all());
+        return request();
     }
 
     /**

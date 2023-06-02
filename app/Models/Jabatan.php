@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Pelamar;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Jabatan extends Model
 {
     use HasFactory;
     protected $guarded =[];
+    //protected $table = 'jabatan';
     protected $date =['created_at'];
-    public function pelamar()
+    public function pelamars():HasMany
     {
-        return $this->hasMany(Pelamar::class, 'nomor_ktp');
+        return $this->hasMany(Pelamar::class,'id_jabatan')->withDefault('-');
     }
 }

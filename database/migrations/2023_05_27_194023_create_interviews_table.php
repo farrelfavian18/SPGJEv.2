@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode_interview')->unique();
-            $table->foreignId('nomor_ktp');
+            $table->foreignId('id_pelamar')->references('id')->on('pelamars')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_jabatan')->references('id_jabatan')->on('pelamars')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_lengkap');
             $table->dateTime('jadwal_interview');
+            $table->boolean('keterangan');
             $table->timestamps();
         });
     }

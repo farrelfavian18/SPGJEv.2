@@ -19,7 +19,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Nama Lengkap</label>
-                <input type="text" name="nama_lengkap" class="form-control" @error('nama_lengkap') is-invalid @enderror value="{{ old('nama_lengkap') }}" autofocus id="exampleInputEmail1" placeholder="Masukan Nama Lengkap">
+                <input type="text" name="nama_lengkap" class="form-control" @error('nama_lengkap') is-invalid @enderror value="{{ old('nama_lengkap') }}" autofocus placeholder="Masukan Nama Lengkap">
                 @error('nama_lengkap')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -27,10 +27,10 @@
               <div class="form-group">
                 <label>Jabatan yang dilamar</label>
                 <div class="dropdown">
-                <select name="jabatan" class="form-control">
+                <select name="id_jabatan" class="form-control">
                   <option value="">-Pilih Jabatan-</option>
                   @foreach ($jabatan as $item )
-                    <option value="{{ $item->jabatan }}">{{ $item->jabatan }}</option>
+                    <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
                   @endforeach
                 </select>
                 @error('jabatan')
@@ -40,28 +40,32 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Kota Tempat Lahir</label>
-                <input type="text" name="nama_lengkap" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama Kota saja (Contoh : Palembang)">
+                <input type="text" name="tempat_lahir" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama Kota saja (Contoh : Palembang)">
               </div>
               <div class="form-group">
+                <div>
                 <label for="exampleInputEmail1">Tanggal lahir</label>
-                <a></a>
+                </div>
+                <div>
                 <input type="date" id="birthdaytime" name="tanggal_lahir">
+                </div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Umur</label>
-                <input type="text" name="umur" class="form-control" id="exampleInputEmail1" placeholder="Masukan Angka (Contoh : 21)">
+                <input type="number" name="umur" class="form-control" id="exampleInputEmail1" placeholder="Masukan Angka (Contoh : 21)">
               </div>
-              <label>Jenis Kelamin</label>
               <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <p></p>
                 <input type="radio" name="jenis_kelamin" value="Pria">&ensp; Pria&ensp;</a>
                 <input type="radio" name="jenis_kelamin" value="Wanita">&ensp; Wanita
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Alamat Rumah</label>
-                <input type="text" name="alamat_rumah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Alamat Lengkap">
+                <textarea name="alamat_rumah" class="form-control" id="exampleFormControlTextarea" placeholder="Masukan Alamat Lengkap"></textarea>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Pendidikan Terakhir</label>
+                <label  for="exampleInputEmail1">Pendidikan Terakhir</label>
                 <div class="dropdown">
                   <select name="pendidikan_terakhir" class="form-control">
                     <option value="SMA">SMA</option>
@@ -80,27 +84,31 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Status Rumah Tangga</label>
                 <div class="dropdown">
-                  <select name="pendidikan_terakhir" class="form-control">
+                  <select name="status" class="form-control">
                     <option value="menikah">Menikah</option>
                     <option value="belum_menikah">Belum Menikah</option>
                     <option value="cerai">Cerai</option>
                   </select>
-                  @error('pendidikan_terakhir')
+                  @error('status')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor KTP (NIK)</label>
-                <input type="text" name="nomor_ktp" class="form-control" id="exampleInputEmail1" placeholder="Masukan nomor KTP dengan benar">
+                <input type="number" name="nomor_ktp" class="form-control" id="exampleInputEmail1" placeholder="Masukan nomor KTP dengan benar">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Kota Tempat Lahir</label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama Kota saja (Contoh : Palembang)">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Telpon</label>
-                <input type="text" name="nomor_ktp" class="form-control" id="exampleInputEmail1" placeholder="Pastikan nomor dapat dihubungi (Disarankan menggunakan nomor WhatsApp)">
+                <input type="number" name="no_telp" class="form-control" id="exampleInputEmail1" placeholder="Pastikan nomor dapat dihubungi (Disarankan menggunakan nomor WhatsApp)">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Kartu Keluarga</label>
-                <input type="text" name="no_kK" class="form-control" id="exampleInputEmail1" placeholder="Masukan nomor Kartu Keluarga">
+                <input type="number" name="no_kK" class="form-control" id="exampleInputEmail1" placeholder="Masukan nomor Kartu Keluarga">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor NPWP yang berlaku</label>
@@ -128,9 +136,9 @@
               <label for="exampleInputEmail1">Surat Izin Mengemudi</label>
               <div class="dropdown">
                 <select name="sim" class="form-control">
+                  <option value="belum_punya">Belum memiliki SIM</option>
                   <option value="sim_a">SIM A</option>
                   <option value="sim_c">SIM C</option>
-                  <option value="belum_punya">Belum memiliki SIM</option>
                 </select>
                 @error('sim')
                   <div class="text-danger">{{ $message }}</div>
@@ -143,7 +151,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Pengalaman Jabatan</label>
-              <input type="text" name="pengalaman_jabatan" class="form-control" id="exampleInputEmail1" placeholder="Masukan pengalaman jabatan anda">
+              <input type="text" name="pengalaman_jabatan" class="form-control" id="exampleInputEmail1" placeholder="Masukan pengalaman jabatan anda di tempat bekerja tersebut">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Masa jabatan pengalaman</label>

@@ -26,7 +26,7 @@
             <tr>
               <td scope = "row">{{$item->id}}</td>
               <td>{{$item->nama_lengkap}}</td>
-              <td>{{$item->jabatan}}</td>
+              <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->jabatans->nama_jabatan}}</td>
               <td>{{$item->tempat_lahir}}</td>
               <td>{{$item->tanggal_lahir}}</td>
               <td>{{$item->jenis_kelamin}}</td>
