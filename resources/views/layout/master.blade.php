@@ -213,6 +213,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
+                            
                             <a class="nav-link {{Request::is('/dashboard')? 'active':''}}" href="{{url('/dashboard')}}">
                                 <i class="nav-icon fas fa-tachometer-alt" style="color:White"></i>
                                 <p style="color:White">
@@ -220,6 +221,7 @@
                                 </p>
                             </a>
                         </li>
+                        {{-- @if (Auth::check() && Auth::user()->role == '1') --}}
                         <li class="nav-item">
                             <a class="nav-link {{Request::is('/jabatan')? 'active':''}}" href="{{url('/jabatan')}}">
                                 <i class="nav-icon fas fa-table" style="color:White"></i>
@@ -228,6 +230,8 @@
                                 </p>
                             </a>
                         </li>
+                        {{-- @endif --}}
+                        @if (Auth::check() && Auth::user()->role == '0')
                         <li class="nav-item">
                             <a class="nav-link {{Request::is('/pelamar/form')? 'active':''}}" href="{{url('/pelamar/form')}}" >
                                 <i class="nav-icon fas fa-edit" style="color:White"></i>
@@ -236,6 +240,8 @@
                                 </p>
                             </a>
                         </li>
+                        @endif
+                        @if (Auth::check() && Auth::user()->role == '1')
                         <li class="nav-item">
                             <a class="nav-link {{Request::is('/pelamar')? 'active':''}}" href="{{url('/pelamar')}}">
                                 <i class="nav-icon fas fa-copy" style="color:White"></i>
@@ -244,6 +250,7 @@
                                 </p>
                             </a>
                         </li>
+                        @endif
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -323,7 +330,7 @@
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('dist/js/demo.js')}}"></script>
+    {{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
     
     <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>

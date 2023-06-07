@@ -17,14 +17,14 @@
           <form action="/jabatan/edit{{$jabatan -> id}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
-                <div class="col-md-6">
+                <div class="form-group">
                   <label for="inputCity" class="form-label">Kode Jabatan</label>
-                  <input type="text" name="kode_jabatan" class="form-control" id="inputCity" placeholder="Masukan Kode Jabatan" value={{ $jabatan ->kode_jabatan }}>
+                  <input type="number" name="kode_jabatan" class="form-control" id="inputCity" placeholder="Masukan Kode Jabatan" value={{ $jabatan ->kode_jabatan }}>
                 </div>
                 <p></p>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama Jabatan</label>
-                  <input type="text" name="nama_jabatan" class="form-control" placeholder="Masukan Nama Jabatan" value={{ $jabatan ->jabatan }}>
+                  <input type="text" name="nama_jabatan" class="form-control" placeholder="Masukan Nama Jabatan" value={{ $jabatan ->nama_jabatan }}>
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>

@@ -13,6 +13,7 @@
         <thead>
         <tr>
           <th>No</th>
+          <th>ID Pendaftaran</th>
           <th>Nama Lengkap</th>
           <th>Jabatan</th>
           <th>Tempat Lahir</th>
@@ -22,9 +23,13 @@
         </tr>
         </thead>
         <tbody>
+          @php
+            $no = 1;
+          @endphp
           @foreach ($pelamar as $item)
             <tr>
-              <td scope = "row">{{$item->id}}</td>
+              <td scope = "row">{{ $no++ }}</td>
+              <td>{{$item->id}}</td>
               <td>{{$item->nama_lengkap}}</td>
               <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->jabatans->nama_jabatan}}</td>
               <td>{{$item->tempat_lahir}}</td>

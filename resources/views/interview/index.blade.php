@@ -31,6 +31,7 @@
           <th>Tanggal Lahir</th>
           <th>Jenis Kelamin</th>
           <th>Alamat</th>
+          <th>Keterangan</th>
         </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
               <td>{{$item->tanggal_lahir}}</td>
               <td>{{$item->jenis_kelamin}}</td>
               <td>{{$item->alamat_rumah}}</td>
+              <td>{{ $item->keterangan }}
               {{-- <td>{{$item->pendidikan_terakhir}}</td> --}}
             </tr>
           @endforeach

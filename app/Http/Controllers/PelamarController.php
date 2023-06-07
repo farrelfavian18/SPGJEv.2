@@ -34,8 +34,11 @@ class PelamarController extends Controller
     {
         //return $request;
         // Jabatan::all();
-        Pelamar::create($request->all());
-        return request();
+
+        //WORKS
+        // Pelamar::create($request->all());
+        // return request();
+
         //return redirect()->route('pelamar.index');
         // //$pelamar->jabatan = $request->jabatan;
         // // $pelamar = New Pelamar;
@@ -43,12 +46,12 @@ class PelamarController extends Controller
         // // $pelamar->save();
         // // return redirect()->route('pelamar.index');
 
-        // $request->validate([
-        //     'nama_lengkap' => 'required|min:3',
-        //     'id_jabatan' => 'required',
-        // ],[
-        //     'jabatan.required' => 'jabatan field is required'
-        // ]);
+        $request->validate([
+            'nama_lengkap' => 'required|min:1',
+            'id_jabatan' => 'required',
+        ],[
+            'jabatan.required' => 'jabatan field is required'
+        ]);
 
         // $pelamar =new Pelamar;
         // $pelamar->nama_lengkap = $request->nama_lengkap;

@@ -24,7 +24,7 @@
                 <p></p>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama Jabatan</label>
-                  <input type="text" name="nama_jabatan" class="form-control" placeholder="Masukan Nama Jabatan" >
+                  <input type="text" name="nama_jabatan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Jabatan" >
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>

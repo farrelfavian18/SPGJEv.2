@@ -1,11 +1,11 @@
 @extends('layout.master')
-@section('title','List Posisi')
+@section('title','List Jabatan')
 @section('content')
 
 <!-- /.card -->
 <div class="card card-warning">
     <div class="card-header">
-      <h3 class="card-title" >Jabatan yang dilamar</h3>
+      <h3 class="card-title" >List Jabatan yang dapat dilamar</h3>
     </div>
     <div>
       @if ($message = Session::get('success'))
@@ -22,10 +22,12 @@
           <th>No.</th>
           <th>KodeJabatan</th>
           <th>Jabatan</th>
-          <th>Deskripsi</th>
+          <th>Deskripsi /  Syarat</th>
+          @if (Auth::check() && Auth::user()->role == '1')
           <th>Dibuat</th>
           <th>Diubah</th>
           <th>Aksi</th>
+          @endif
         </tr>
         </thead>
         <tbody>
@@ -38,9 +40,12 @@
             <td>{{ $item->kode_jabatan }}</td>
             <td>{{ $item->nama_jabatan }}</td>
             <td>{{ $item->deskripsi }}</td>
+            @if (Auth::check() && Auth::user()->role == '1')
             <td>{{ $item->created_at->diffForHumans() }}</td>
             <td>{{ $item->updated_at->diffForHumans() }}</td>
+            @endif
           </td>
+          @if (Auth::check() && Auth::user()->role == '1')
           <td class="project-actions">
               <a class="btn btn-info btn-sm" href="/jabatan/show/{{$item->id}}">
                   <i class="fas fa-pencil-alt">
@@ -54,9 +59,12 @@
               </a>
           </td>
           </tr>
+          @endif
           @endforeach
+          @if (Auth::check() && Auth::user()->role == '1')
         <a href ="{{url('/jabatan/create')}}" class="btn btn-success">Tambah Jabatan +</a>
         </tfoot>
+          @endif
       </table>
     </div>
     <!-- /.card-body -->
