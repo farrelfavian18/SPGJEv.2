@@ -39,6 +39,7 @@ class PelamarController extends Controller
         // Pelamar::create($request->all());
         // return request();
 
+
         //return redirect()->route('pelamar.index');
         // //$pelamar->jabatan = $request->jabatan;
         // // $pelamar = New Pelamar;
@@ -49,8 +50,29 @@ class PelamarController extends Controller
         $request->validate([
             'nama_lengkap' => 'required|min:1',
             'id_jabatan' => 'required',
+            'tempat_lahir' => 'required',
+            'umur' => 'required|min:1',
+            'alamat_rumah' =>'required|min:1',
+            'pendidikan_terakhir' => 'required',
+            'status' => 'required',
+            'nomor_ktp' => 'required',
+            'email' => 'required',
+            'no_telp' => 'required',
+            'no_kk' => 'required|min:4',
+            'npwp' => 'required'
         ],[
-            'jabatan.required' => 'jabatan field is required'
+            'nama_lengkap' => 'Masukan nama lengkap anda',
+            'id_jabatan.required' => 'Diwajibkan memilih jabatan',
+            'tempat_lahir' => 'Masukan tempat lahir',
+            'umur' => 'Anda belum memasukan Umur anda',
+            'alamat_rumah' => 'Alamat rumah belum diisi',
+            'pendidikan_terakhir' =>'Pilih pendidikan terakhir anda',
+            'status' => 'Pilih keadaan status anda sekarang',
+            'nomor_ktp' => 'Masukan nomor KTP dengan baik dan sesuai fakta',
+            'email' => 'Masukan alamat E-Mail aktif',
+            'no_telp' => 'Masukan nomor telpon yang dapat dihubungi',
+            'no_kk' => 'Isi nomor Kartu Keluarga',
+            'npwp' => 'Masukan nomor NPWP anda dengan benar'
         ]);
 
         // $pelamar =new Pelamar;

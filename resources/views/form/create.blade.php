@@ -19,7 +19,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Nama Lengkap</label>
-                <input type="text" name="nama_lengkap" class="form-control" @error('nama_lengkap') is-invalid @enderror value="{{ old('nama_lengkap') }}" autofocus placeholder="Masukan Nama Lengkap">
+                <input type="text" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" value="{{ old('nama_lengkap') }}" autofocus placeholder="Masukan Nama Lengkap">
                 @error('nama_lengkap')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -27,20 +27,23 @@
               <div class="form-group">
                 <label>Jabatan yang dilamar</label>
                 <div class="dropdown">
-                <select name="id_jabatan" class="form-control">
+                <select name="id_jabatan" class="form-control @error('id_jabatan') is-invalid @enderror">
                   <option value="">-Pilih Jabatan-</option>
                   @foreach ($jabatan as $item )
-                    <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+                    <option value="{{ $item->id }}"{{ old('id_jabatan') == $item->id ?'selected':null }}>{{ $item->nama_jabatan }}</option>
                   @endforeach
                 </select>
-                @error('jabatan')
+                @error('id_jabatan')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
                 </div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Kota Tempat Lahir</label>
-                <input type="text" name="tempat_lahir" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama Kota saja (Contoh : Palembang)">
+                <input type="text" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" value="{{ old('tempat_lahir') }}" id="exampleInputEmail1" placeholder="Masukan nama Kota saja (Contoh : Palembang)">
+              @error('tempat_lahir')
+                <div class="text-danger">{{ $message }}</div>
+              @enderror
               </div>
               <div class="form-group">
                 <div>
@@ -52,7 +55,10 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Umur</label>
-                <input type="number" name="umur" class="form-control" id="exampleInputEmail1" placeholder="Masukan Angka (Contoh : 21)">
+                <input type="number" name="umur" class="form-control @error('umur') is-invalid @enderror" value="{{ old('umur') }}" id="exampleInputEmail1" placeholder="Masukan Angka (Contoh : 21)">
+                @error('umur')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label>Jenis Kelamin</label>
@@ -62,12 +68,15 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Alamat Rumah</label>
-                <textarea name="alamat_rumah" class="form-control" id="exampleFormControlTextarea" placeholder="Masukan Alamat Lengkap"></textarea>
+                <textarea name="alamat_rumah" class="form-control @error('alamat_rumah') is-invalid @enderror" value="{{ old('alamat_rumah') }}" id="exampleFormControlTextarea" placeholder="Masukan Alamat Lengkap"></textarea>
+                @error('alamat_rumah')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label  for="exampleInputEmail1">Pendidikan Terakhir</label>
                 <div class="dropdown">
-                  <select name="pendidikan_terakhir" class="form-control">
+                  <select name="pendidikan_terakhir" class="form-control @error('pendidikan_terakhir') is-invalid @enderror"  value="{{ old('pendidikan_terakhir') }}">
                     <option value="SMA">SMA</option>
                     <option value="SMK">SMK</option>
                     <option value="STM">STM</option>
@@ -84,7 +93,7 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Status Rumah Tangga</label>
                 <div class="dropdown">
-                  <select name="status" class="form-control">
+                  <select name="status" class="form-control @error('status') is-invalid @enderror"  value="{{ old('status') }}">
                     <option value="menikah">Menikah</option>
                     <option value="belum_menikah">Belum Menikah</option>
                     <option value="cerai">Cerai</option>
@@ -96,19 +105,31 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor KTP (NIK)</label>
-                <input type="number" name="nomor_ktp" class="form-control" id="exampleInputEmail1" placeholder="Masukan nomor KTP dengan benar">
+                <input type="number" name="nomor_ktp" class="form-control @error('nomor_ktp') is-invalid @enderror"  value="{{ old('nomor_ktp') }}" id="exampleInputEmail1" placeholder="Masukan nomor KTP dengan benar">
+                  @error('nomor_ktp')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Kota Tempat Lahir</label>
-                <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama Kota saja (Contoh : Palembang)">
+                <label for="exampleInputEmail1">E-Mail</label>
+                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" id="exampleInputEmail1" placeholder="Masukan E-mail anda">
+                  @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Telpon</label>
-                <input type="number" name="no_telp" class="form-control" id="exampleInputEmail1" placeholder="Pastikan nomor dapat dihubungi (Disarankan menggunakan nomor WhatsApp)">
+                <input type="number" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror"  value="{{ old('no_telp') }}" id="exampleInputEmail1" placeholder="Pastikan nomor dapat dihubungi (Disarankan menggunakan nomor WhatsApp)">
+                  @error('no_telp')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Kartu Keluarga</label>
-                <input type="number" name="no_kK" class="form-control" id="exampleInputEmail1" placeholder="Masukan nomor Kartu Keluarga">
+                <input type="number" name="no_kk" class="form-control @error('no_kk') is-invalid @enderror" value="{{ old('no_kk') }}" id="exampleInputEmail1" placeholder="Masukan nomor Kartu Keluarga">
+                  @error('no_kk')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor NPWP yang berlaku</label>
