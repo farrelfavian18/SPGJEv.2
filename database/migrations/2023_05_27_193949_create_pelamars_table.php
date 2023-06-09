@@ -28,11 +28,12 @@ return new class extends Migration
             $table->string('alamat_rumah');
             $table->enum('pendidikan_terakhir',['SMA','SMK','STM','S1','S2','S3','D3','D4']);
             $table->enum('status',['menikah','belum_menikah','cerai']);
+            $table->enum('agama',['Islam','Kristen','Katholik','Hindu','Buddha','KongHuCu']);
             $table->bigInteger('nomor_ktp')->unique();
             $table->string('email');
             $table->bigInteger('no_telp');
-            $table->bigInteger('no_kk');
-            $table->string('npwp');
+            $table->bigInteger('no_kk')->nullable();
+            $table->string('npwp')->nullable();
             $table->char('sertifikat_migas')->nullable();
             $table->date('masa_berlaku_sertifikat')->nullable();
             $table->enum('sim',['sim_a','sim_c','belum_punya'])->nullable();
@@ -40,6 +41,8 @@ return new class extends Migration
             $table->string('pengalaman_jabatan')->nullable();
             $table->string('masa_jabatan')->nullable();
             $table->char('cv')->nullable();
+            $table->enum('keterangan',['Lulus','Tidak Lulus'])->nullable();
+            $table->date('jadwal_interview')->nullable();
             $table->timestamps();
         });
     }

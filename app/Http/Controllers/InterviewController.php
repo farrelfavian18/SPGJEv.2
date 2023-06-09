@@ -14,6 +14,10 @@ class InterviewController extends Controller
      */
     public function index()
     {
+        
+        //$pelamar = Pelamar::all();
+        //$pelamar= Pelamar::with('jabatans')->get();
+        $interview = Interview::with('pelamars')->get();
         $interview = Interview::all();
         return view('interview.index',compact('interview'));
     }
@@ -23,8 +27,9 @@ class InterviewController extends Controller
      */
     public function create()
     {
-        $pelamar= Pelamar::all();
-        return view('interview.index',compact('pelamar'));
+        $pelamar = Pelamar::all();
+        return view('interview.index',compact('interviews'));
+       // $interview = New Interview();
     }
 
     /**
@@ -32,7 +37,12 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        Interview::create($request->all());
+        //Interview::create($request->all());
+        $interview = New Interview();
+        $interview->id_pelamar = $request->id_pelamar;
+        $interview->id_jabatan = $request->id_jabatan;
+        $interview->jadwal_interview = $request->jadwal_interview;
+        $interview->keterangan = $request->keterangan;
         return request();
     }
 
@@ -49,9 +59,18 @@ class InterviewController extends Controller
      */
     public function edit(Interview $interview)
     {
-        //
+        // Interview::find($interview);
+        // $interview->update($request->all());
+        // return redirect()->route('interview');
+        // ('success','Data berhasil di Edit');
     }
 
+    // public function destroy(Jabatan $jabatan)
+    // {
+    //     // Jabatan::find($jabatan);
+    //     // $jabatan->delete();
+    //     // return redirect()->route('jabatan')->with('success','Data berhasil di Hapus');
+    // }
     /**
      * Update the specified resource in storage.
      */

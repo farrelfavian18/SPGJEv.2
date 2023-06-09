@@ -1,17 +1,5 @@
-{{-- <div class="form-check form-check-success">
-    <input class="form-check-input" type="radio" name="keterangan" id="Success" value="lulus" checked>
-    <label class="form-check-label" for="Success">
-        Lulus
-    </label>
-</div>
-<div class="form-check form-check-warning">
-    <input class="form-check-input" type="radio" name="keterangan" id="Warning" value="tidak_lulus" checked>
-    <label class="form-check-label" for="Warning">
-        Tidak Lulus
-    </label>
-</div> --}}
 @extends('layout.master')
-@section('title','Pengumuman Seleksi')
+@section('title','Terima Interview')
 @section('content')
 
 <!-- /.card -->
@@ -25,26 +13,28 @@
         <thead>
         <tr>
           <th>No</th>
+          <th>ID Pendaftaran</th>
           <th>Nama Lengkap</th>
-          <th>Jabatan</th>
-          <th>Tempat Lahir</th>
-          <th>Tanggal Lahir</th>
-          <th>Jenis Kelamin</th>
-          <th>Alamat</th>
           <th>Keterangan</th>
         </tr>
         </thead>
         <tbody>
-          @foreach ($pelamar as $item)
+          @php
+            $no = 1;
+          @endphp
+          @foreach ($interview as $item)
             <tr>
-              <td scope = "row">{{$item->id}}</td>
-              <td>{{$item->nama_lengkap}}</td>
-              <td>{{$item->jabatans->nama_jabatan}}</td>
-              <td>{{$item->tempat_lahir}}</td>
+              <td scope = "row">{{ $no++ }}</td>
+              {{-- <td>{{$item->id}}</td> --}}
+              <td>{{$item->pelamars->id_pelamar == "null" ? "N/A" : $item->pelamars->id_pelamar}}</td>
+              <td>{{$item->pelamars->nama_lengkap == "null" ? "N/A" : $item->pelamars->nama_lengkap}}</td>
+              <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->pelamars->nama_jabatan}}</td>
+              <td>{{$item->jadwal_interview}}</td>
               <td>{{$item->tanggal_lahir}}</td>
-              <td>{{$item->jenis_kelamin}}</td>
-              <td>{{$item->alamat_rumah}}</td>
-              <td>{{ $item->keterangan }}
+              <td>{{$item->keterangan }}</td>
+              {{-- <td><a href="dokumen/{{ $item->sertifikat_migas }}"><button class="btn btn-success" type="button">Sertifikat</button><a></td>
+                <td><a href="dokumen/{{ $item->cv }}"><button class="btn btn-success" type="button">CV</button><a></td>
+              <td>{{$item->alamat_rumah}}</td> --}}
               {{-- <td>{{$item->pendidikan_terakhir}}</td> --}}
             </tr>
           @endforeach

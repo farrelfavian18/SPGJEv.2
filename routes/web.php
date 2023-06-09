@@ -77,6 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::post('pelamar/insert',[PelamarController::class,'store'])->name('/pelamar/insert');
     Route::get('/pelamar/show/{pelamar}',[PelamarController::class,'show'])->name('/pelamar/show');
     Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
+    Route::get('/pelamar/accept{pelamar}',[PelamarController::class,'accept'])->name('/pelamar/accept');
 
     #Pelamar
     Route::get('/pelamar',[PelamarController::class,'index'])->name('pelamar');

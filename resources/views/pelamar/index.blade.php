@@ -18,8 +18,25 @@
           <th>Jabatan</th>
           <th>Tempat Lahir</th>
           <th>Tanggal Lahir</th>
+          <th>Umur</th>
           <th>Jenis Kelamin</th>
           <th>Alamat</th>
+          <th>Pendidikan Terakhir</th>
+          <th>Status</th>
+          <th>Agama</th>
+          <th>Email</th>
+          <th>No Telp</th>
+          <th>Nomor KTP</th>
+          <th>No KK</th>
+          <th>NPWP</th>
+          <th>SIM</th>
+          <th>Pengalaman Kerja</th>
+          <th>Pengalaman Jabatan</th>
+          <th>Masa Jabatan Pengalaman</th>
+          <th>Sertifikat</th>
+          <th>Masa Berlaku</th>
+          <th>CV</th>
+          <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -34,8 +51,38 @@
               <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->jabatans->nama_jabatan}}</td>
               <td>{{$item->tempat_lahir}}</td>
               <td>{{$item->tanggal_lahir}}</td>
+              <td>{{$item->umur}}</td>
               <td>{{$item->jenis_kelamin}}</td>
               <td>{{$item->alamat_rumah}}</td>
+              <td>{{$item->pendidikan_terakhir}}</td>
+              <td>{{$item->status}}</td>
+              <td>{{$item->agama}}</td>
+              <td>{{$item->email}}</td>
+              <td>{{$item->no_telp}}</td>
+              <td>{{$item->nomor_ktp}}</td>
+              <td>{{$item->no_kk}}</td>
+              <td>{{$item->npwp}}</td>
+              <td>{{$item->sim}}</td>
+              <td>{{$item->pengalaman_kerja}}</td>
+              <td>{{$item->pengalaman_jabatan}}</td>
+              <td>{{$item->masa_jabatan}}</td>
+              <td><a href="dokumen/{{ $item->sertifikat_migas}}"><button class="btn btn-success" type="button">Sertifikat</button><a></td>
+              <td>{{$item->masa_berlaku_sertifikat}}</td>
+              <td><a href="dokumen/{{ $item->cv }}"><button class="btn btn-success" type="button">CV</button><a></td>
+              {{-- <td>{{$item->keterangan}}</td>
+              <td>{{$item->jadwal_interview}}</td> --}}
+              <td class="project-actions">
+                <a class="btn btn-info btn-sm" href="/pelamar/show/{{$item->id}}">
+                    <i class="fas fa">
+                    </i>
+                    Seleksi
+                </a>
+                <a class="btn btn-danger btn-sm" href="pelamar/delete{{$item->id}}">
+                    <i class="fas fa-trash">
+                    </i>
+                    Delete
+                </a>
+            </td>
               {{-- <td>{{$item->pendidikan_terakhir}}</td> --}}
             </tr>
           @endforeach
