@@ -213,7 +213,6 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            
                             <a class="nav-link {{Request::is('/dashboard')? 'active':''}}" href="{{url('/dashboard')}}">
                                 <i class="nav-icon fas fa-tachometer-alt" style="color:White"></i>
                                 <p style="color:White">
@@ -226,7 +225,7 @@
                             <a class="nav-link {{Request::is('/jabatan')? 'active':''}}" href="{{url('/jabatan')}}">
                                 <i class="nav-icon fas fa-table" style="color:White"></i>
                                 <p style="color:White">
-                                    List Jabatan (HRD)
+                                    List Jabatan
                                 </p>
                             </a>
                         </li>
@@ -236,7 +235,7 @@
                             <a class="nav-link {{Request::is('/pelamar/form')? 'active':''}}" href="{{url('/pelamar/form')}}" >
                                 <i class="nav-icon fas fa-edit" style="color:White"></i>
                                 <p style="color:White">
-                                    Form Pendaftaran (Pelamar)
+                                    Form Pendaftaran
                                 </p>
                             </a>
                         </li>
@@ -251,6 +250,14 @@
                             </a>
                         </li>
                         @endif
+                        <li class="nav-item">
+                            <a class="nav-link {{Request::is('/interview')? 'active':''}}" href="{{url('/interview')}}">
+                                <i class="nav-icon fas fa-book" style="color:White"></i>
+                                <p style="color:White">
+                                    Interview
+                                </p>
+                            </a>
+                        </li>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

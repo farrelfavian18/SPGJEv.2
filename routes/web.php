@@ -92,6 +92,7 @@ Route::middleware('auth')->group(function () {
     
     #Interview
     Route::get('/interview',[InterviewController::class,'index'])->name('interview');
+    Route::get('shift-data',[InterviewController::class,'shiftdata'])->name('shiftdata');
 });
 
 require __DIR__.'/auth.php';

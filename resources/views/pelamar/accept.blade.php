@@ -9,7 +9,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body text-left">
-        PENDAFTARAN BERHASIL
+        PENDAFTARAN BERHASIL, silahkan menuju Tab Interview untuk melihat update seleksi pendaftaran pegawai
     </div>
     <!-- /.card-body -->
   </div>

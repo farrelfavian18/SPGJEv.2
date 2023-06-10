@@ -17,4 +17,8 @@ class Jabatan extends Model
     {
         return $this->hasMany(Pelamar::class,'id_jabatan')->withDefault('-');
     }
+    public function interview()
+    {
+        return $this->hasManyThrough(Interview::class, Pelamar::class);
+    }
 }

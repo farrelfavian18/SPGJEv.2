@@ -16,9 +16,11 @@ class InterviewController extends Controller
     {
         
         //$pelamar = Pelamar::all();
-        //$pelamar= Pelamar::with('jabatans')->get();
-        $interview = Interview::with('pelamars')->get();
+        $interview= Pelamar::with('jabatans')->get();
+        //$interview = Interview::with('pelamars')->get();
+        //$pelamar =  Pelamar::with('interviews')->get();
         $interview = Interview::all();
+        // dd($interview);
         return view('interview.index',compact('interview'));
     }
 
@@ -77,6 +79,24 @@ class InterviewController extends Controller
     public function update(Request $request, Interview $interview)
     {
         //
+    }
+
+    public function shiftdata(){
+        $pelamars= Pelamar::with('jabatans')->get();
+        //$pelamars= Interview::with('pelamars')->get();
+        $pelamars = Pelamar::get();
+        // dd($pelamars);
+
+        foreach ($pelamars as $key => $value) {
+            Interview::create([
+                'id_pelamar'=>$value->id,
+                'id_jabatan'=>$value->id_jabatan,
+                'nama_lengkap'=>$value->nama_lengkap,
+            ]);
+            # code...
+        }
+        //return view('interview.index',compact('interviews'));
+        return redirect()->route('interview')->with('success','Data pegawai berhasil di perbaharui');
     }
 
     /**
