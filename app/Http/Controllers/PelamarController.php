@@ -115,7 +115,14 @@ class PelamarController extends Controller
         $pelamar->masa_jabatan = $request->masa_jabatan;
         $pelamar->cv = $nama_cv;
         $pelamar->save();
-        return view('pelamar.accept');
+        $id_pelamar = Pelamar::all()->last()->id;
+        
+        $interview = new Interview();
+        $interview->id_pelamar = $id_pelamar;
+        $interview->id_jabatan = $request ->id_jabatan;
+        $interview->nama_lengkap = $request->nama_lengkap;
+        $interview->save();
+        return view('pelamar.accept',compact('id_pelamar'));
 
         // $interview = new Interview();
         // $interview->nama_lengkap = $request->nama_lengkap;

@@ -9,7 +9,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <a href ="{{url('shift-data')}}" class="btn btn-success">Buat pengumuman</a>
+      {{-- <a href ="{{url('shift-data')}}" class="btn btn-success">Buat pengumuman</a> --}}
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -19,6 +19,9 @@
           <th>Jabatan</th>
           <th>Keterangan</th>
           <th>Jadwal Interview</th>
+          @if (Auth::check() && Auth::user()->role == '1')
+          <th>Aksi</th>
+          @endif
         </tr>
         </thead>
         <tbody>
@@ -37,6 +40,21 @@
               <td>{{$item->id_jabatan}}</td>
               <td>{{$item->keterangan }}</td>
               <td>{{$item->jadwal_interview}}</td>
+              </td>
+              @if (Auth::check() && Auth::user()->role == '1')
+              <td class="project-actions">
+                  <a class="btn btn-info btn-sm" href="/jabatan/show/{{$item->id}}">
+                      <i class="fas fa-pencil-alt">
+                      </i>
+                      Edit
+                  </a>
+                  <a class="btn btn-danger btn-sm" href="jabatan/delete{{$item->id}}">
+                      <i class="fas fa-trash">
+                      </i>
+                      Delete
+                  </a>
+              </td>
+              @endif
               {{-- <td><a href="dokumen/{{ $item->sertifikat_migas }}"><button class="btn btn-success" type="button">Sertifikat</button><a></td>
                 <td><a href="dokumen/{{ $item->cv }}"><button class="btn btn-success" type="button">CV</button><a></td>
               <td>{{$item->alamat_rumah}}</td> --}}

@@ -9,7 +9,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body text-left">
-        PENDAFTARAN BERHASIL, silahkan menuju Tab Interview untuk melihat update seleksi pendaftaran pegawai
+        PENDAFTARAN BERHASIL,dengan ID Pendaftaran <strong>{{$id_pelamar}}</strong>, silahkan menuju Tab Interview untuk melihat update seleksi pendaftaran pegawai
     </div>
     <!-- /.card-body -->
   </div>

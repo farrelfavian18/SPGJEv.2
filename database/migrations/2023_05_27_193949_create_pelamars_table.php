@@ -41,8 +41,8 @@ return new class extends Migration
             $table->string('pengalaman_jabatan')->nullable();
             $table->string('masa_jabatan')->nullable();
             $table->char('cv')->nullable();
-            $table->enum('keterangan',['Lulus','Tidak Lulus'])->nullable();
-            $table->date('jadwal_interview')->nullable();
+            // $table->enum('keterangan',['Lulus','Tidak Lulus'])->nullable();
+            // $table->date('jadwal_interview')->nullable();
             $table->timestamps();
         });
     }
