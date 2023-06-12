@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/interview/edit', function(){
+//     return view('interview.edit');
+// });
+
 // Route::get('/form', function(){
 //     return view('form.index');
 // });
@@ -92,7 +96,11 @@ Route::middleware('auth')->group(function () {
     
     #Interview
     Route::get('/interview',[InterviewController::class,'index'])->name('interview');
-    Route::get('shift-data',[InterviewController::class,'shiftdata'])->name('shiftdata');
+    Route::get('/interview/show/{interview}',[InterviewController::class,'show'])->name('interview/show');
+    Route::post('/interview/edit{interview}',[InterviewController::class,'edit'])->name('interview/edit');
+    //Route::get('/interview/show',[InterviewController::class,'show'])->name('interview/show');
+    Route::get('/interview/delete{interview}',[InterviewController::class,'destroy'])->name('/interview/delete');
+    //Route::get('shift-data',[InterviewController::class,'shiftdata'])->name('shiftdata');
 });
 
 require __DIR__.'/auth.php';

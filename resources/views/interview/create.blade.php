@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','Ubah Jabatan')
+@section('title','Seleksi Pelamar dan Terima Interview')
 @section('content')
 
 <section class="content">
@@ -14,22 +14,43 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="/pelamar/insert{{$pelamar -> id}}" method="POST" enctype="multipart/form-data">
+          <form action="/interview/edit{{$interview -> id}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                  <label for="inputCity" class="form-label">ID Pelamar</label>
-                  <input type="number" name="kode_jabatan" class="form-control" id="inputCity" placeholder="Masukan Kode Jabatan" value={{ $jabatan ->kode_jabatan }}>
+                  <label for="inputCity" class="form-label">Nomor Pendaftar</label>
+                  <a {{ $interview ->id_pelamar}}></a>
+                </div>
+                <div class="form-group">
+                    <label for="inputCity" class="form-label">Jabatan</label>
+                    <a {{ $interview->jabatans->nama_jabatan}}></a>
                 </div>
                 <p></p>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama Pelamar</label>
-                  <input type="text" name="nama_jabatan" class="form-control" placeholder="Masukan Nama Jabatan" value={{ $jabatan ->nama_jabatan }}>
+                  <a {{ $interview ->nama_lengkap }}></a>
                 </div>
-                <div class="mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                  <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan Deskripsi atau syarat Jabatan" value={{ $jabatan ->deskripsi}}></textarea>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Seleksi</label>
+                    <div class="dropdown">
+                      <select name="keterangan" class="form-control">
+                        <option value="Sedang Proses">Sedang Proses</option>
+                        <option value="Lulus">Lulus</option>
+                        <option value="Tidak Lulus">Tidak Lulus</option>
+                      </select>
+                      @error('keterangan')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
+                    </div>
                 </div>
+                <div class="form-group">
+                    <div>
+                    <label for="exampleInputEmail1">Jadwal Interview</label>
+                    </div>
+                    <div>
+                    <input type="date" id="birthdaytime" name="jadwal_interview">
+                    </div>
+                  </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">

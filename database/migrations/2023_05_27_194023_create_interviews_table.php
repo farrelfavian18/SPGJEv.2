@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('id_jabatan')->references('id_jabatan')->on('pelamars')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_lengkap');
             $table->dateTime('jadwal_interview')->nullable();
-            $table->enum('keterangan',['Lulus','Tidak Lulus'])->nullable();
+            $table->enum('keterangan',['Sedang Proses','Lulus','Tidak Lulus'])->nullable()->default('Sedang Proses');
             $table->timestamps();
         });
     }

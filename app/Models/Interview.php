@@ -19,13 +19,16 @@ class Interview extends Model
     //     'id_jabatan',
     //     'nama_lengkap',
     //   ];
-    public function jabatans():BelongsTo
+    public function jabatans()
     {
-        return $this->hasMany(Jabatan::class,'id_jabatan','id')->withDefault('-');
+       // return $this->hasMany(Jabatan::class,'id_jabatan','id')->withDefault('-');
+        // return $this->belongsTo(Jabatan::class,'id');
+        return $this->belongsTo(Jabatan::class,'id_jabatan','id');
     }
 
-    // public function pelamars():HasMany
-    // {
-    //     return $this->hasMany(Pelamar::class,'id_pelamar','id')->withDefault('-');
-    // }
+    public function pelamars()
+    {
+        return $this->hasMany(Pelamar::class,'id_pelamar');
+        //return $this->hasMany(Pelamar::class,'id_pelamar','id')->withDefault('-');
+    }
 }

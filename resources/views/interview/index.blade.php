@@ -37,18 +37,19 @@
               {{-- <td>{{$item->pelamars->nama_lengkap == "null" ? "N/A" : $item->pelamars->nama_lengkap}}</td> --}}
               <td>{{$item->nama_lengkap}}</td>
               {{-- <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->pelamars->nama_jabatan}}</td> --}}
-              <td>{{$item->id_jabatan}}</td>
+              {{-- <td>{{$item->id_jabatan}}</td> --}}
+              {{-- <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->jabatans->nama_jabatan}}</td> --}}
+              <td>{{$item->jabatans->nama_jabatan ?? 'None' }}</td>
               <td>{{$item->keterangan }}</td>
-              <td>{{$item->jadwal_interview}}</td>
-              </td>
+              <td>{{ Carbon\Carbon::parse($item->jadwal_interview)->format('l\ d-m-Y h:i:A') }}</td>
               @if (Auth::check() && Auth::user()->role == '1')
               <td class="project-actions">
-                  <a class="btn btn-info btn-sm" href="/jabatan/show/{{$item->id}}">
-                      <i class="fas fa-pencil-alt">
+                  <a class="btn btn-info btn-sm" href="interview/show/{{$item->id}}">
+                      <i class="fas fa">
                       </i>
-                      Edit
+                      Seleksi
                   </a>
-                  <a class="btn btn-danger btn-sm" href="jabatan/delete{{$item->id}}">
+                  <a class="btn btn-danger btn-sm" href="interview/delete{{$item->id}}">
                       <i class="fas fa-trash">
                       </i>
                       Delete

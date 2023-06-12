@@ -353,6 +353,11 @@
     <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
     <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
+    {{-- Boostrap Datepicker --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    {{-- flatpicker --}}
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <script>
         $(function () {
           $("#example1").DataTable({
@@ -374,7 +379,14 @@
         $(function () {
           bsCustomFileInput.init();
         });
-        </script>
+    </script>
+    <script>
+        config = {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        }
+        flatpickr("input[type=datetime-local]", config);
+    </script>
         </body>
         </html>
 

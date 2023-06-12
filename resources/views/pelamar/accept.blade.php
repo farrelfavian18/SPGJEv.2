@@ -9,7 +9,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body text-left">
-        PENDAFTARAN BERHASIL,dengan ID Pendaftaran <strong>{{$id_pelamar}}</strong>, silahkan menuju Tab Interview untuk melihat update seleksi pendaftaran pegawai
+      <a style="color: green">Pendaftaran BERHASIL</a>,dengan No Pendaftaran&nbsp; <strong>{{$id_pelamar}}</strong>&nbsp;, silahkan menuju ke <a href="{{url('interview')}}">Tab Interview<a> untuk melihat update seleksi pendaftaran pegawai
     </div>
     <!-- /.card-body -->
   </div>

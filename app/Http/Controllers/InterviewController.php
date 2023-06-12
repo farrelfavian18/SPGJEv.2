@@ -16,7 +16,8 @@ class InterviewController extends Controller
     {
         
         //$pelamar = Pelamar::all();
-        $interview= Pelamar::with('jabatans')->get();
+        $interview= Interview::with('jabatans')->get();
+        //$interview= Pelamar::with('pelamars')->get();
         //$interview = Interview::with('pelamars')->get();
         //$pelamar =  Pelamar::with('interviews')->get();
         $interview = Interview::all();
@@ -29,8 +30,6 @@ class InterviewController extends Controller
      */
     public function create()
     {
-        $pelamar = Pelamar::all();
-        return view('interview.index',compact('interviews'));
        // $interview = New Interview();
     }
 
@@ -51,20 +50,33 @@ class InterviewController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(Interview $interview)
+    // {
+    //     return view('interview.edit',compact('interview'));
+    //     //dd($interview);
+    // }
     public function show(Interview $interview)
     {
-        //
+        //dd($request->all());
+        // dd($jabatan);
+        Interview::find($interview);
+
+        return view('interview.edit',compact('interview'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Interview $interview)
+    public function edit(Request $request,Interview $interview)
     {
         // Interview::find($interview);
         // $interview->update($request->all());
         // return redirect()->route('interview');
         // ('success','Data berhasil di Edit');
+        Interview::find($interview);
+        $interview->update($request->all());
+        return redirect()->route('interview')->with('success','Pelamar berhasil di seleksi');
     }
 
     // public function destroy(Jabatan $jabatan)
@@ -81,29 +93,31 @@ class InterviewController extends Controller
         //
     }
 
-    public function shiftdata(){
-        $pelamars= Pelamar::with('jabatans')->get();
-        //$pelamars= Interview::with('pelamars')->get();
-        $pelamars = Pelamar::get();
-        // dd($pelamars);
+    // public function shiftdata(){
+    //     $pelamars= Pelamar::with('jabatans')->get();
+    //     //$pelamars= Interview::with('pelamars')->get();
+    //     $pelamars = Pelamar::get();
+    //     // dd($pelamars);
 
-        foreach ($pelamars as $key => $value) {
-            Interview::create([
-                'id_pelamar'=>$value->id,
-                'id_jabatan'=>$value->id_jabatan,
-                'nama_lengkap'=>$value->nama_lengkap,
-            ]);
-            # code...
-        }
-        //return view('interview.index',compact('interviews'));
-        return redirect()->route('interview')->with('success','Data pegawai berhasil di perbaharui');
-    }
+    //     foreach ($pelamars as $key => $value) {
+    //         Interview::create([
+    //             'id_pelamar'=>$value->id,
+    //             'id_jabatan'=>$value->id_jabatan,
+    //             'nama_lengkap'=>$value->nama_lengkap,
+    //         ]);
+    //         # code...
+    //     }
+    //     //return view('interview.index',compact('interviews'));
+    //     return redirect()->route('interview')->with('success','Data pegawai berhasil di perbaharui');
+    // }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Interview $interview)
     {
-        //
+        Interview::find($interview);
+        $interview->delete();
+        return redirect()->route('interview')->with('success','Pelamar berhasil di Hapus');
     }
 }

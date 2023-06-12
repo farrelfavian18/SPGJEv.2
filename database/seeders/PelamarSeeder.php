@@ -20,6 +20,7 @@ class PelamarSeeder extends Seeder
            'tempat_lahir'=> 'Palembang',
            'tanggal_lahir'=> '2002-05-18',
            'umur'=> '21',
+           'agama'=>'Islam',
            'jenis_kelamin'=> 'Pria',
            'alamat_rumah'=> 'Jalan Sersan Wahab no,2048',
            'pendidikan_terakhir'=> 'SMA',

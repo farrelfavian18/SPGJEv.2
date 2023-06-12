@@ -14,8 +14,8 @@ class JabatanSeeder extends Seeder
     public function run(): void
     {
         DB::table('jabatans')->insert([
-            'kode_jabatan' => '001',
-            'jabatan' => 'Rig Superintendent',
+            'kode_jabatan' => '01',
+            'nama_jabatan' => 'Rig Superintendent',
             'deskripsi' => 'LSP "PPT MIGAS" Sertifikasi (OUPS) No.3',
         ]);
     }
