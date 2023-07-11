@@ -10,7 +10,7 @@
         <!-- general form elements -->
         <div class="card card-warning">
           <div class="card-header">
-            <h3 class="card-title">Tambah Jabatan untuk Pelamar</h3>
+            <h3 class="card-title">Tambah Jabatan untuk Calon Pegawai</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->

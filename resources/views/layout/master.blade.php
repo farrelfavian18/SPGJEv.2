@@ -216,7 +216,7 @@
                             <a class="nav-link {{Request::is('/dashboard')? 'active':''}}" href="{{url('/dashboard')}}">
                                 <i class="nav-icon fas fa-tachometer-alt" style="color:White"></i>
                                 <p style="color:White">
-                                    Dashboard
+                                    Alur Pendaftaran
                                 </p>
                             </a>
                         </li>
@@ -225,7 +225,7 @@
                             <a class="nav-link {{Request::is('/jabatan')? 'active':''}}" href="{{url('/jabatan')}}">
                                 <i class="nav-icon fas fa-table" style="color:White"></i>
                                 <p style="color:White">
-                                    List Jabatan
+                                    Jabatan
                                 </p>
                             </a>
                         </li>
@@ -245,7 +245,7 @@
                             <a class="nav-link {{Request::is('/pelamar')? 'active':''}}" href="{{url('/pelamar')}}">
                                 <i class="nav-icon fas fa-copy" style="color:White"></i>
                                 <p style="color:White">
-                                    List Pendaftar
+                                    Pendaftar
                                 </p>
                             </a>
                         </li>
@@ -254,7 +254,7 @@
                             <a class="nav-link {{Request::is('/interview')? 'active':''}}" href="{{url('/interview')}}">
                                 <i class="nav-icon fas fa-book" style="color:White"></i>
                                 <p style="color:White">
-                                    Interview
+                                    Seleksi
                                 </p>
                             </a>
                         </li>

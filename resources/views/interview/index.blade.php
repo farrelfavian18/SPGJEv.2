@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','Seleksi Pelamar dan Terima Interview')
+@section('title','Jadwal Interview dan Pengumuman Seleksi')
 @section('content')
 
 <!-- /.card -->
@@ -17,8 +17,9 @@
           <th>ID Pendaftaran</th>
           <th>Nama Lengkap</th>
           <th>Jabatan</th>
-          <th>Keterangan</th>
+          <th>Seleksi Dokumen</th>
           <th>Jadwal Interview</th>
+          <th>Kelulusan Rekrtumen</th>
           @if (Auth::check() && Auth::user()->role == '1')
           <th>Aksi</th>
           @endif
@@ -40,8 +41,9 @@
               {{-- <td>{{$item->id_jabatan}}</td> --}}
               {{-- <td>{{$item->jabatans->nama_jabatan == "null" ? "N/A" : $item->jabatans->nama_jabatan}}</td> --}}
               <td>{{$item->jabatans->nama_jabatan ?? 'None' }}</td>
-              <td>{{$item->keterangan }}</td>
+              <td>{{$item->seleksi_dokumen}}</td>
               <td>{{ Carbon\Carbon::parse($item->jadwal_interview)->format('l\ d-m-Y h:i:A') }}</td>
+              <td>{{$item->seleksi_rekrutmen}}</td>
               @if (Auth::check() && Auth::user()->role == '1')
               <td class="project-actions">
                   <a class="btn btn-info btn-sm" href="interview/show/{{$item->id}}">

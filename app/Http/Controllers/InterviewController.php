@@ -43,7 +43,8 @@ class InterviewController extends Controller
         $interview->id_pelamar = $request->id_pelamar;
         $interview->id_jabatan = $request->id_jabatan;
         $interview->jadwal_interview = $request->jadwal_interview;
-        $interview->keterangan = $request->keterangan;
+        $interview->seleksi_dokumen = $request->seleksi_dokumen;
+        $interview->seleksi_rekrutmen = $request->seleksi_rekrutmen;
         return request();
     }
 

@@ -38,14 +38,14 @@
                   </div>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Seleksi</label>
+                    <label for="exampleInputEmail1">Seleksi Dokumen</label>
                     <div class="dropdown">
-                      <select name="keterangan" class="form-control">
-                        <option value="Sedang Proses">Sedang Proses</option>
-                        <option value="Lulus">Lulus</option>
-                        <option value="Tidak Lulus">Tidak Lulus</option>
+                      <select name="seleksi_dokumen" class="form-control">
+                        <option value="Sedang Proses" @selected(old('seleksi_dokumen') == "Sedang Proses")>Sedang Proses</option>
+                        <option value="Lulus" @selected(old('seleksi_dokumen') == "Lulus")>Lulus</option>
+                        <option value="Tidak Lulus" @selected(old('seleksi_dokumen') =="Tidak Lulus")>Tidak Lulus</option>
                       </select>
-                      @error('keterangan')
+                      @error('seleksi_dokumen')
                         <div class="text-danger">{{ $message }}</div>
                       @enderror
                     </div>
@@ -59,9 +59,24 @@
                     </div>
                   </div>
               </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Seleksi Rekrtumen</label>
+                <div class="dropdown">
+                  <select name="seleksi_rekrutmen" class="form-control">
+                    <option value="Sedang Proses">Sedang Proses</option>
+                    <option value="Lulus">Lulus</option>
+                    <option value="Tidak Lulus">Tidak Lulus</option>
+                  </select>
+                  @error('seleksi_rekrutmen')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+              </div>
+    </div>
               <!-- /.card-body -->
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
               </div>
           </form>
         </div>

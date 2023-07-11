@@ -1,7 +1,7 @@
 @extends('layout.master')
-@section('title','Dashboard')
+@section('title','Alur Pendaftaran')
 @section('content')
 <div class="text-center">
-    <img src="{{ asset('image/AlurLoker.png') }}" class="img-fluid" alt="Alur Loker">
+    <img src="{{ asset('image/Alur Loker.drawio3.png') }}" class="img-fluid" alt="Alur Loker">
 </div>
 @endsection

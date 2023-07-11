@@ -91,6 +91,10 @@ class PelamarController extends Controller
         $nama_cv = 'CV'.date('Ymdhis').'.'.$request->file('cv')->getClientOriginalExtension();
         $cv->move('dokumen/',$nama_cv);
 
+        $scan_ktp = $request->file('scan_ktp');
+        $nama_scanktp = 'KTP'.date('Ymdhis').'.'.$request->file('scan_ktp')->getClientOriginalExtension();
+        $scan_ktp->move('dokumen/',$nama_scanktp);
+
         $pelamar =new Pelamar();
         $pelamar->nama_lengkap = $request->nama_lengkap;
         $pelamar->id_jabatan = $request->id_jabatan;
@@ -103,16 +107,24 @@ class PelamarController extends Controller
         $pelamar->status = $request->status;
         $pelamar->agama = $request->agama;
         $pelamar->nomor_ktp = $request->nomor_ktp;
+        $pelamar->scan_ktp = $nama_scanktp;
         $pelamar->email = $request->email;
         $pelamar->no_telp = $request->no_telp;
         $pelamar->no_kk = $request->no_kk;
         $pelamar->npwp = $request->npwp;
+        $pelamar->nama_sertifikat_migas = $request->nama_sertifikat_migas;
         $pelamar->sertifikat_migas = $nama_sertifikat;
         $pelamar->masa_berlaku_sertifikat = $request->masa_berlaku_sertifikat;
         $pelamar->sim = $request->sim;
         $pelamar->pengalaman_kerja = $request->pengalaman_kerja;
         $pelamar->pengalaman_jabatan = $request->pengalaman_jabatan;
         $pelamar->masa_jabatan = $request->masa_jabatan;
+        $pelamar->pengalaman_kerja2 = $request->pengalaman_kerja2;
+        $pelamar->pengalaman_jabatan2 = $request->pengalaman_jabatan2;
+        $pelamar->masa_jabatan2 = $request->masa_jabatan2;
+        $pelamar->pengalaman_kerja3 = $request->pengalaman_kerja3;
+        $pelamar->pengalaman_jabatan3 = $request->pengalaman_jabatan3;
+        $pelamar->masa_jabatan3 = $request->masa_jabatan3;
         $pelamar->cv = $nama_cv;
         $pelamar->save();
         $id_pelamar = Pelamar::all()->last()->id;

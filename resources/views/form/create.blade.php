@@ -127,6 +127,13 @@
                   @enderror
               </div>
               <div class="form-group">
+                <label for="exampleInputFile">Scan KTP</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="scan_ktp" id="customFile">
+                  <label class="custom-file-label" for="customFile">Masukan Foto atau Scan KTP(size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">E-Mail</label>
                 <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" id="exampleInputEmail1" placeholder="Masukan E-mail anda">
                   @error('email')
@@ -164,10 +171,14 @@
                 </div>
               </div> --}}
               <div class="form-group">
-                <label for="exampleInputFile">Sertifikat (size max 50mb, dan format PDF)</label>
+                <label for="exampleInputEmail1">Nama Sertifikat</label>
+                <input type="text" name="nama_sertifikat_migas" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Sertifikat yang di masukan">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Sertifikat (size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" name="sertifikat_migas" id="customFile">
-                  <label class="custom-file-label" for="customFile">Masukan Sertifikat Migas (size max 50mb, format PDF)</label>
+                  <label class="custom-file-label" for="customFile">Masukan Scan Sertifikat Migas size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
                 </div>
               </div>
               <div class="form-group">
@@ -182,6 +193,8 @@
                 <select name="sim" class="form-control">
                   <option value="belum_punya">Belum memiliki SIM</option>
                   <option value="sim_a">SIM A</option>
+                  <option value="sim_b1">SIM B1</option>
+                  <option value="sim_b2">SIM B2</option>
                   <option value="sim_c">SIM C</option>
                 </select>
                 @error('sim')
@@ -201,6 +214,30 @@
               <label for="exampleInputEmail1">Masa jabatan pengalaman</label>
               <input type="text" name="masa_jabatan" class="form-control" id="exampleInputEmail1" placeholder="Masukan berapa lama pengalaman anda pada jabatan tersebut (Contoh : 2 Tahun)">
             </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Pengalaman Kerja Lainnya (Jika tidak ada tidak perlu di isi) ke-2</label>
+              <input type="text" name="pengalaman_kerja2" class="form-control" id="exampleInputEmail1" placeholder="Masukan tempat anda pernah bekerja lainnya (Jika tidak ada tidak perlu di isi)">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Pengalaman Jabatan Lainnya (Jika tidak ada tidak perlu di isi) ke-2</label>
+              <input type="text" name="pengalaman_jabatan2" class="form-control" id="exampleInputEmail1" placeholder="Masukan pengalaman jabatan anda di tempat bekerja lainnya">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Masa jabatan pengalaman Lainnya (Jika tidak ada tidak perlu di isi) ke-2</label>
+              <input type="text" name="masa_jabatan2" class="form-control" id="exampleInputEmail1" placeholder="Masukan berapa lama pengalaman anda pada jabatan tersebut">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Pengalaman Kerja Lainnya (Jika tidak ada tidak perlu di isi) ke-3</label>
+              <input type="text" name="pengalaman_kerja3" class="form-control" id="exampleInputEmail1" placeholder="Masukan tempat anda pernah bekerja lainnya (Jika tidak ada tidak perlu di isi)">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Pengalaman Jabatan Lainnya (Jika tidak ada tidak perlu di isi) ke-3</label>
+              <input type="text" name="pengalaman_jabatan3" class="form-control" id="exampleInputEmail1" placeholder="Masukan pengalaman jabatan anda di tempat bekerja lainnya">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Masa jabatan pengalaman Lainnya (Jika tidak ada tidak perlu di isi) ke-3</label>
+              <input type="text" name="masa_jabatan3" class="form-control" id="exampleInputEmail1" placeholder="Masukan berapa lama pengalaman anda pada jabatan tersebut">
+            </div>
               {{-- <div class="form-group">
                 <label for="exampleInputFile">Curriculum Vitae (CV)</label>
                 <div class="input-group">
@@ -217,7 +254,7 @@
                 <label for="exampleInputFile">Curriculum Vitae (CV)</label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" name="cv" id="customFile">
-                  <label class="custom-file-label" for="customFile">Masukan CV (size max 50mb, format PDF)</label>
+                  <label class="custom-file-label" for="customFile">Masukan Dokumen CV (size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
                 </div>
               </div>
               <div class="form-check">

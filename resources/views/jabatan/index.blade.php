@@ -5,7 +5,7 @@
 <!-- /.card -->
 <div class="card card-warning">
     <div class="card-header">
-      <h3 class="card-title" >List Jabatan yang dapat dilamar</h3>
+      <h3 class="card-title" >Jabatan yang tersedia pada PT Ginting Jaya Energi Tbk , beserta syaratnya</h3>
     </div>
     <div>
       @if ($message = Session::get('success'))
@@ -41,8 +41,10 @@
             <td>{{ $item->nama_jabatan }}</td>
             <td>{{ $item->deskripsi }}</td>
             @if (Auth::check() && Auth::user()->role == '1')
-            <td>{{ $item->created_at->diffForHumans() }}</td>
-            <td>{{ $item->updated_at->diffForHumans() }}</td>
+            <td>{{ $item->created_at}}</td>
+            {{-- <td>{{ $item->created_at->diffForHumans() }}</td> --}}
+            <td>{{ $item->updated_at}}</td>
+            {{-- <td>{{ $item->updated_at->diffForHumans() }}</td> --}}
             @endif
           </td>
           @if (Auth::check() && Auth::user()->role == '1')
