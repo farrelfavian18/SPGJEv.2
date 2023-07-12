@@ -65,6 +65,9 @@
                 <p></p>
                 <input type="radio" name="jenis_kelamin" value="Pria">&ensp; Pria&ensp;</a>
                 <input type="radio" name="jenis_kelamin" value="Wanita">&ensp; Wanita
+                @error('jenis_kelamin')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Alamat Rumah</label>
@@ -127,10 +130,13 @@
                   @enderror
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">Scan KTP</label>
+                <label for="exampleInputFile">Scan/Foto KTP</label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" name="scan_ktp" id="customFile">
                   <label class="custom-file-label" for="customFile">Masukan Foto atau Scan KTP(size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
+                  @error('scan_ktp')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
               </div>
               <div class="form-group">
@@ -150,13 +156,16 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Kartu Keluarga</label>
                 <input type="number" name="no_kk" class="form-control" value="{{ old('no_kk') }}" id="exampleInputEmail1" placeholder="Masukan nomor Kartu Keluarga">
-                  {{-- @error('no_kk')
+                  @error('no_kk')
                     <div class="text-danger">{{ $message }}</div>
-                  @enderror --}}
+                  @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nomor NPWP yang berlaku</label>
-                <input type="text" name="npwp" class="form-control" id="exampleInputEmail1" placeholder="Masukan NPWP dengan benar">
+                <input type="text" name="npwp" class="form-control" value="{{ old('npwp') }}" id="exampleInputEmail1" placeholder="Masukan NPWP dengan benar">
+                  @error('npwp')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               {{-- <div class="form-group">
                 <label for="exampleInputFile">Sertifikat</label>
@@ -172,13 +181,19 @@
               </div> --}}
               <div class="form-group">
                 <label for="exampleInputEmail1">Nama Sertifikat</label>
-                <input type="text" name="nama_sertifikat_migas" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Sertifikat yang di masukan">
+                <input type="text" name="nama_sertifikat_migas" class="form-control @error('nama_sertifikat_migas') is-invalid @enderror" value="{{ old('nama_sertifikat_migas') }}" id="exampleInputEmail1" placeholder="Masukan Nama Sertifikat yang di masukan">
+                  @error('nama_sertifikat_migas')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">Sertifikat (size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
+                <label for="exampleInputFile">Scan/Foto Sertifikat</label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" name="sertifikat_migas" id="customFile">
-                  <label class="custom-file-label" for="customFile">Masukan Scan Sertifikat Migas size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
+                  <label class="custom-file-label" for="customFile">Masukan Scan Sertifikat Migas size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG</label>
+                  @error('sertifikat_migas')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
               </div>
               <div class="form-group">
@@ -251,10 +266,13 @@
                 </div>
               </div> --}}
               <div class="form-group">
-                <label for="exampleInputFile">Curriculum Vitae (CV)</label>
+                <label for="exampleInputFile">Dokumen Curriculum Vitae (CV)</label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" name="cv" id="customFile">
                   <label class="custom-file-label" for="customFile">Masukan Dokumen CV (size max 10MB, dan format dokumen PDF atau Gambar JPG/PNG)</label>
+                  @error('cv')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
               </div>
               <div class="form-check">

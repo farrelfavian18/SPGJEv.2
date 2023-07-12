@@ -69,6 +69,12 @@ Route::get('/dashboard', function () {
     Route::post('/jabatan/edit{jabatan}',[JabatanController::class,'edit'])->name('/jabatan/edit');
     Route::get('/jabatan/delete{jabatan}',[JabatanController::class,'destroy'])->name('/jabatan/delete');
 
+    Route::get('/interview/show/{interview}',[InterviewController::class,'show'])->name('interview/show');
+    Route::post('/interview/edit{interview}',[InterviewController::class,'edit'])->name('interview/edit');
+    Route::get('/interview/delete{interview}',[InterviewController::class,'destroy'])->name('/interview/delete');
+
+    Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -80,7 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pelamar/form',[PelamarController::class,'create'])->name('/pelamar/form');
     Route::post('pelamar/insert',[PelamarController::class,'store'])->name('/pelamar/insert');
     Route::get('/pelamar/show/{pelamar}',[PelamarController::class,'show'])->name('/pelamar/show');
-    Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
+    // Route::get('/pelamar/delete{pelamar}',[PelamarController::class,'destroy'])->name('/pelamar/delete');
     Route::get('/pelamar/accept{pelamar}',[PelamarController::class,'accept'])->name('/pelamar/accept');
 
     #Pelamar
@@ -96,11 +102,9 @@ Route::middleware('auth')->group(function () {
     
     #Interview
     Route::get('/interview',[InterviewController::class,'index'])->name('interview');
-    Route::get('/interview/show/{interview}',[InterviewController::class,'show'])->name('interview/show');
-    Route::post('/interview/edit{interview}',[InterviewController::class,'edit'])->name('interview/edit');
-    //Route::get('/interview/show',[InterviewController::class,'show'])->name('interview/show');
-    Route::get('/interview/delete{interview}',[InterviewController::class,'destroy'])->name('/interview/delete');
-    //Route::get('shift-data',[InterviewController::class,'shiftdata'])->name('shiftdata');
+    // Route::get('/interview/show/{interview}',[InterviewController::class,'show'])->name('interview/show');
+    // Route::post('/interview/edit{interview}',[InterviewController::class,'edit'])->name('interview/edit');
+    // Route::get('/interview/delete{interview}',[InterviewController::class,'destroy'])->name('/interview/delete');
 });
 
 require __DIR__.'/auth.php';

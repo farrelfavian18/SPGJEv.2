@@ -53,30 +53,38 @@ class PelamarController extends Controller
             'id_jabatan' => 'required',
             'tempat_lahir' => 'required',
             'umur' => 'required|min:1',
+            'jenis_kelamin' => 'required',
             'alamat_rumah' =>'required|min:1',
             'pendidikan_terakhir' => 'required',
             'status' => 'required',
             'agama' => 'required',
             'nomor_ktp' => 'required',
+            'scan_ktp' => 'required|mimes:jpg,jpeg,png,pdf|max:10240',
             'email' => 'required',
             'no_telp' => 'required',
             'no_kk' => 'required|min:4',
             'npwp' => 'required',
-            'sertifikat_migas' => 'mimes:pdf'
+            'nama_sertifikat_migas'=>'required',
+            'sertifikat_migas' => 'required|mimes:jpg,jpeg,png,pdf|max:10240',
+            'cv' => 'required|mimes:jpg,jpeg,png,pdf|max:10240'
         ],[
             'nama_lengkap' => 'Masukan nama lengkap anda',
             'id_jabatan.required' => 'Diwajibkan memilih jabatan',
             'tempat_lahir' => 'Masukan tempat lahir',
             'umur' => 'Anda belum memasukan Umur anda',
+            'jenis_kelamin' => 'Anda belum memasukan Jenis Kelamin anda',
             'alamat_rumah' => 'Alamat rumah belum diisi',
             'pendidikan_terakhir' =>'Pilih pendidikan terakhir anda',
             'status' => 'Pilih keadaan status anda sekarang',
             'nomor_ktp' => 'Masukan nomor KTP dengan baik dan sesuai fakta',
+            'scan_ktp' => 'Masukan file Scan KTP, file dapat berupa jpg,jpeg,png,pdf Size Max : 10MB',
             'email' => 'Masukan alamat E-Mail aktif',
             'no_telp' => 'Masukan nomor telpon yang dapat dihubungi',
             'no_kk' => 'Isi nomor Kartu Keluarga',
             'npwp' => 'Masukan nomor NPWP anda dengan benar',
-            'sertifikat_migas' => 'File harus berbentuk PDF'
+            'nama_sertifikat_migas'=>'Masukan nama Sertifikat sesuai file yang di upload',
+            'sertifikat_migas' => 'Masukan file sertifikat, file dapat berupa jpg,jpeg,png,pdf Size Max : 10MB',
+            'cv' => 'Masukan file dokumen CV anda, file dapat berupa jpg,jpeg,png,pdf Size Max : 10MB'
         ]);
 
         //WORKS V.2
