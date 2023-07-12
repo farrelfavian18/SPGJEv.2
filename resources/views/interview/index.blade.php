@@ -6,6 +6,7 @@
 <div class="card">
     <div class="card-header">
       <h3 class="card-title">Seleksi Calon Pegawai PT. GINTING JAYA ENERGI</h3>
+      <h3 class="card-title">Lokasi :<a href="https://goo.gl/maps/HUP18vq7zov4i38c7">Jln. Tanjung Api-Api KM.8 Kelurahan Gasing, Kecamatan Talang Kelapa,Banyuasin – Sumatera Selatan 30961.<a></h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
