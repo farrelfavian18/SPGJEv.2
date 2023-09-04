@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','Seleksi Pelamar dan Terima Interview')
+@section('title','Seleksi Rekrutmen dan Terima Interview')
 @section('content')
 
 <section class="content">
